@@ -29,11 +29,6 @@ if (requireNamespace("lintr", quietly = TRUE)) {
     )
     # check .Rmd, .R, .r
     val = lintr::lint_dir(pattern = "\\.[Rr](md)?$", linters = linters)
-    # running from Rscript, indicate status by exit code
-    if(!interactive()){
-      val
-      q(save = 'no', status = length(val))
-    }
     return(val )
   }
 } else{
