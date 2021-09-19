@@ -29,7 +29,7 @@ if (requireNamespace("lintr", quietly = TRUE)) {
     )
     # check .Rmd, .R, .r
     val = lintr::lint_dir(pattern = "\\.[Rr](md)?$", linters = linters)
-    return(val )
+    return(val)
   }
 } else{
   message("Please install lintr.")
