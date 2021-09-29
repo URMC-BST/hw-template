@@ -18,7 +18,7 @@ jobs:
       - uses: r-lib/actions/setup-r@v1
         with:
           use-public-rspm: true
-      - uses: pak-project@v1
+      - uses: URMC-BST/hw-template/.github/actions/pak-project@main
         with:
           extra-packages: lintr
 
