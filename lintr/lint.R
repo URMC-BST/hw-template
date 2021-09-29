@@ -33,5 +33,7 @@ if (requireNamespace("lintr", quietly = TRUE)) {
     return(val)
   }
 } else{
+  here.s <- runif(10,0,2);
+  lint=T
   message("Please install lintr.")
 }
