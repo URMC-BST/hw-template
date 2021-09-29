@@ -42,15 +42,14 @@ runs:
           cat("::group::Install dependencies\n")
           options(pak.no_extra_messages = TRUE)
           needs <- sprintf("Config/Needs/%s", strsplit("${{ inputs.needs }}", "[[:space:],]+")[[1]])
-          needs_only_deps <- needs_deps
           extra_deps <- strsplit("${{ inputs.extra-packages }}", "[[:space:],]+")[[1]]
           if (Sys.info()[["sysname"]] == "Linux") {
             pak::local_system_requirements(execute = TRUE)
-            for (dep in c(needs_only_deps, extra_deps)) {
+            for (dep in c(needs, extra_deps)) {
               pak::pkg_system_requirements(dep, execute = TRUE)
             }
           }
-          pak::pkg_install(c(needs_only_deps, extra_deps, "sessioninfo"))
+          pak::pkg_install(c(needs, extra_deps, "sessioninfo"))
           cat("::endgroup::\n")
         shell: Rscript {0}
 
