@@ -44,7 +44,6 @@ runs:
           needs <- sprintf("Config/Needs/%s", strsplit("${{ inputs.needs }}", "[[:space:],]+")[[1]])
           extra_deps <- strsplit("${{ inputs.extra-packages }}", "[[:space:],]+")[[1]]
           if (Sys.info()[["sysname"]] == "Linux") {
-            pak::local_system_requirements(execute = TRUE)
             for (dep in c(needs, extra_deps)) {
               pak::pkg_system_requirements(dep, execute = TRUE)
             }
