@@ -16,7 +16,7 @@ if (requireNamespace("lintr", quietly = TRUE)) {
       })
     }
     # modify defaults to match course style guide
-    linters = lintr::with_defaults(
+    linters = lintr::linters_with_defaults(
       assignment_linter = NULL,
       arrow_assign = arrow_lintr,
       single_quotes_linter = NULL,
