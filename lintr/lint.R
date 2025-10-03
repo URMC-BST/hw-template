@@ -18,15 +18,13 @@ if (requireNamespace("lintr", quietly = TRUE)) {
     # modify defaults to match course style guide
     linters = lintr::linters_with_defaults(
       assignment_linter = NULL,
-      arrow_assign = arrow_lintr,
-      single_quotes_linter = NULL,
       trailing_whitespace_linter = NULL,
       line_length_linter = NULL,
       lintr::line_length_linter(90),
       commented_code_linter = NULL,
-      lintr::T_and_F_symbol_linter,
-      lintr::undesirable_operator_linter,
-      lintr::semicolon_terminator_linter
+      lintr::T_and_F_symbol_linter(),
+      lintr::undesirable_operator_linter(),
+      lintr::semicolon_linter()
     )
     # check .Rmd, .R, .r
     val = lintr::lint_dir(pattern = "\\.[Rr](md)?$", linters = linters)
